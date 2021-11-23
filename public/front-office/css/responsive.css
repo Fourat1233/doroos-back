@@ -1,0 +1,60 @@
+ 
+	/*--------------------------
+		Media Query
+		----------------------*/
+
+	@media all and (min-width: 999px){ 
+	}
+
+	@media all and (max-width: 991px){  
+	}
+	@media all and (max-width: 768px){ 
+		section {
+			padding: 3rem 0;
+		}
+		.copyright {
+			text-align: center;
+		}
+		.copyright .footer-box-location .nav{
+			flex-direction: row !important;
+		}
+		.copyright .footer-box-social-media .nav{
+			justify-content: center;
+		}
+	}
+
+	@media (max-width: 580px) {  
+		
+	}  
+	@media (max-width: 410px) {
+		
+	}
+	@media (max-width: 350px) {  
+		.teacher-box .teacher-box-pic { 
+			height: 130px;
+		}
+	}
+	
+	/*--------------------------
+		Direction 
+		----------------------*/
+	[dir ="rtl"] .scroll-to-top {
+		left: auto;
+		right: -50%;
+	}
+	[dir ="rtl"] .scroll-to-top.show { 
+		left: auto; 
+		right: 50px; 
+	} 
+	@media (max-width: 992px) { 
+		[dir ="rtl"] .navbar-collapse.collapsing .navbar-nav {
+			left: auto;
+			right: -60%;
+		} 
+		[dir ="rtl"] .navbar-collapse.show .navbar-nav {
+			left: auto;
+			right: 0;
+			transition: right 0.35s ease;
+		}
+	}
+	

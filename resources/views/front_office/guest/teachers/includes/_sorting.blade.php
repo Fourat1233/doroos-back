@@ -1,0 +1,1 @@
+@sortablelink('pricing')
