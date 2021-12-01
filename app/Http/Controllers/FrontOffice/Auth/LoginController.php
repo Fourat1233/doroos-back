@@ -84,16 +84,16 @@ class LoginController extends Controller
         ]);
 
         $account = new User();
-
         if($request->file) {
             $fileName = time().'.'.$request->file->extension();
             $request->file->move(public_path('uploads/users'), $fileName);
             $account->profile_image = $fileName;
         }
-
+        
         if($request->account_type === 'student') {
             $user = Student::create();
         } elseif($request->account_type === 'teacher') {
+            
             $user = Instructor::create();
         }
 

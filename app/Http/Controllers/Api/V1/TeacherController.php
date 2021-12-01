@@ -36,7 +36,7 @@ class TeacherController extends Controller
     }
 
     public function search(Request $request)
-    {
+    {/*
         $q = $request->get('q');
         $subjects = $request->get('subjects') ?? [];
 
@@ -62,6 +62,7 @@ class TeacherController extends Controller
             ->orWhere('users.full_name', 'like', '%' . $q . '%');
 
         return response()->json($InstructorQuery->get());
+        */
     }
 
     public function bySubject($id)
@@ -77,7 +78,7 @@ class TeacherController extends Controller
     }
 
     public function getOne($id)
-    {
+    { /*
         $Instructor = Instructor::query()
             ->join('users', 'users.userable_id', '=', 'instructors.id')
             ->where('users.userable_type', '=', Instructor::class)
@@ -89,7 +90,17 @@ class TeacherController extends Controller
 
         return response()->json([
             'data' => $Instructor
-        ]);
+        ]); **/
+
+            if ($id) {
+                
+                $teacher = Instructor::with(['user', 'subjects:id,name'])->findOrFail($id);
+                return response()->json([
+                    'data' => $teacher
+                ]);
+            }
+           
+        
     }
 
     public function rate(Request $request, int $id)

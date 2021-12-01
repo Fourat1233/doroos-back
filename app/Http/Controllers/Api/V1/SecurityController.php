@@ -28,13 +28,15 @@ class SecurityController extends Controller
 
     public function __construct(TokenRepository $tokenRepository)
     {
-        $this->client = $tokenRepository->findClientById(1);
+        $this->client = $tokenRepository->findClientById(8);
+       // return dump($this->client);
     }
 
     public function signUp(Request $request) {
-
+     
         $user = null;
-
+        
+/*
         $request->validate([
             'full_name' => 'required',
             'contact_point' => 'required|unique:users',
@@ -43,7 +45,7 @@ class SecurityController extends Controller
             'gender' => 'required',
             'account_type' => 'required|not_in:0'
         ]);
-
+        */
         $account = new User();
 
         if($request->file) {
@@ -68,6 +70,8 @@ class SecurityController extends Controller
         $account->save();
 
         return response()->json(['success', 200]);
+
+        
     }
 
    /**
@@ -77,7 +81,7 @@ class SecurityController extends Controller
      * @return mixed
      */
     public function signIn(Request $request)
-    {
+    {  
         $this->validateCredentials($this->credentials($request))->validate();
         return $this->issueToken($request, 'password', $this->credentials($request));
     }

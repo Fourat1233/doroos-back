@@ -17,12 +17,16 @@ class CreateInstructorsTable extends Migration
             $table->bigIncrements('id');
             $table->longText('about')->nullable();
             $table->double('pricing')->nullable();
-            $table->float('latitude', 10, 7);
-            $table->float('longitude', 10, 7);
+            $table->float('latitude', 10, 7)->nullable();
+            $table->float('longitude', 10, 7)->nullable();
+            $table->longtext('city')->nullable();
+            $table->longtext('state')->nullable();
             $table->integer('years_of_experience')->nullable();
             $table->json('teaching_level')->nullable();
             $table->json('teaching_type')->nullable();
             $table->json('operating_hours')->nullable();
+            $table->json('teaching_areas')->nullable();
+            $table->json('business_hours')->nullable();
             $table->boolean('is_trusted')->default(false);
             $table->boolean('is_completed')->default(false);
             $table->timestamps();

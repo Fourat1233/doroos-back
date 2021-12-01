@@ -49,7 +49,9 @@ class TeacherController extends Controller
     public function loadOne($lang, int $id)
     {
         if ($id) {
-            $instructor = $this->teacherRepository->findOne($id);
+           // $instructor = $this->teacherRepository->findOne($id);
+           $instructor = Instructor::with(['user', 'subjects:id,name'])->findOrFail($id);
+
             return view('front_office.guest.teachers.details', compact('instructor'));
         }
         return redirect(app()->getLocale() . '/teachers');

@@ -147,6 +147,12 @@
 								<p>Students</p>
 							</a>
 						</li>
+						<li class="nav-item {{ Request::segment(3) === 'stats' ? 'active' : null }}">
+							<a href="{{ route('back.secure.stats.home') }}">
+								<i class="flaticon-users"></i>
+								<p>Stats</p>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>

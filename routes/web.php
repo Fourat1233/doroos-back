@@ -29,7 +29,7 @@ Route::prefix('back_office')->group(function () {
         Route::get('/teachers/{id}', 'BackOffice\Secure\TeacherController@show')->name('back.secure.teacher.details');
         Route::get('/teachers/validation/{id}', 'BackOffice\Secure\TeacherController@validation')->name('back.secure.teacher.validation');
         Route::post('/teachers/review/{id}', 'BackOffice\Secure\TeacherController@review')->name('back.secure.teacher.review');
-
+        Route::get('/stats','BackOffice\Secure\StatsController@index')->name('back.secure.stats.home');
     });
 });
 

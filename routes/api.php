@@ -2,12 +2,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
-
     /*********** Groupe of routes with authorizted access **********/
     Route::prefix('gate')->group(function () {
-        Route::post('sign_in', 'Api\V1\SecurityController@signIn');
-        Route::post('sign_up', 'Api\V1\SecurityController@signUp');
-        Route::post('refresh', 'Api\V1\SecurityController@refresh');
+          Route::post('sign_up', 'Api\V1\SecurityController@signUp');
+          Route::post('sign_in', 'Api\V1\SecurityController@signIn');
+          Route::post('refresh', 'Api\V1\SecurityController@refresh');
+          
     });
 
     Route::prefix('teachers')->group(function() {
@@ -38,4 +38,6 @@ Route::post('/find_subjects', 'Api\V1\SubjectController@search');
 
 Route::prefix('subjects')->group(function() {
     Route::get('/load_all', 'Api\V1\SubjectController@index');
+
+
 });
