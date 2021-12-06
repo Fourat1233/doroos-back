@@ -19,12 +19,12 @@ class CreatProfileController extends Controller
 
     public function SaveStep1(Request $request) {
         $validatedData = $request->validate([
-            'about' => 'required|min:300',
+            'about' => 'required|min:20',
             'city' => 'required|not_in:0',
             'state' => 'required|not_in:0'
         ]);
         if(empty($request->session()->get('account'))){
-            $profile = Instructor::find(Auth::user()->id);
+            $profile = Instructor::find(Auth::user()->userable_id);
             $profile->fill($validatedData);
             $request->session()->put('account', $profile);
         }else{
@@ -98,7 +98,6 @@ class CreatProfileController extends Controller
         ]);
 
         $profile = $request->session()->get('account');
-
         $details = json_decode(file_get_contents("http://ipinfo.io/"));
         $coordinates = explode(",", $details->loc);
 
@@ -111,7 +110,7 @@ class CreatProfileController extends Controller
         $subjects = $request->subjects;
         foreach($subjects as $subj){
             $subject = new InstructorSubject();
-            $subject->instructor_id = Auth::user()->id;
+            $subject->instructor_id = Auth::user()->userable_id;
             $subject->subject_id = $subj;
             $subject->save();
         }
@@ -122,7 +121,7 @@ class CreatProfileController extends Controller
 
         $resume = new Attachment();
         $resume->storage_path = $reusmeName;
-        $resume->instructor_id= Auth::user()->id;
+        $resume->instructor_id= Auth::user()->userable_id;
         $resume->attachment_type= 'RE';
         $resume->save();
 
@@ -133,7 +132,7 @@ class CreatProfileController extends Controller
 
             $degrees = new Attachment();
             $degrees->storage_path = $degreesName;
-            $degrees->instructor_id= Auth::user()->id;
+            $degrees->instructor_id= Auth::user()->userable_id;
             $degrees->attachment_type= 'DE';
             $degrees->save();
         }
@@ -144,7 +143,7 @@ class CreatProfileController extends Controller
             $request->certificates->move(public_path('uploads/teachers/'.Auth::user()->id), $certificatesName);
             $certificates = new Attachment();
             $certificates->storage_path = $certificatesName;
-            $certificates->instructor_id= Auth::user()->id;
+            $certificates->instructor_id= Auth::user()->userable_id;
             $certificates->attachment_type= 'CE';
             $certificates->save();
         }
@@ -155,7 +154,7 @@ class CreatProfileController extends Controller
             $request->experiences->move(public_path('uploads/teachers/'.Auth::user()->id), $experiencesName);
             $experiences = new Attachment();
             $experiences->storage_path = $experiencesName;
-            $experiences->instructor_id= Auth::user()->id;
+            $experiences->instructor_id= Auth::user()->userable_id;
             $experiences->attachment_type= 'EX';
             $experiences->save();
         }

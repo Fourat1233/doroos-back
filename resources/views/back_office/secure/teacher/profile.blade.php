@@ -28,10 +28,10 @@
                                         {{-- <i class="fa fa-exclamation-circle"></i> --}}
                                         Validate Account
                                     </a>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#reviewAccount">
+                                    {{-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#reviewAccount"> --}}
                                         {{-- <i class="fa fa-exclamation-circle"></i> --}}
-                                        Send Review
-                                    </button>
+                                        {{-- Send Review --}}
+                                    {{-- </button> --}}
                                 </div>
                             </div>
                             @endif
