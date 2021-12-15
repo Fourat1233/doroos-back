@@ -38,7 +38,7 @@ class CreatProfileController extends Controller
     public function step2(Request $request) {
         // if(empty($request->session()->get('account'))){
         //     return redirect(app()->getLocale().'/account/create/step1');
-        // }
+        // }    
         return view('front_office.secure.create_profile.step2');
     }
 

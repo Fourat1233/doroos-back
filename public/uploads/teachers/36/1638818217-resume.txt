@@ -1,0 +1,2 @@
+le resulatat de la division de 5/6 = 0.8333333333333334le resulatat de la division de 15/3 = 5.0
+ le resulatat de la division de 5/10 = 0.5

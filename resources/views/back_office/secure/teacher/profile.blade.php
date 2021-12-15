@@ -193,7 +193,6 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- ----------------------------------
                             
                             <div class="row mt--2">
                 <div class="col-md-12">
@@ -206,13 +205,13 @@
                                     <div style="width: 100px; height: 100px; border-radius: 50px; border: 5px solid #8E68AD; position: relative">
                                         <h1 style="position: absolute; top: 30%; bottom: 0; left: 0; right: 0">10</h1>
                                     </div>
-                                    <h6 class="fw-bold mt-3 mb-0">Subjects</h6>
+                                    <h6 class="fw-bold mt-3 mb-0">Called</h6>
                                 </div>
                                 <div class="px-2 pb-2 pb-md-0 text-center">
                                     <div style="width: 100px; height: 100px; border-radius: 50px; border: 5px solid #8E68AD; position: relative">
                                         <h1 style="position: absolute; top: 30%; bottom: 0; left: 0; right: 0">25</h1>
                                     </div>
-                                    <h6 class="fw-bold mt-3 mb-0">Teachers</h6>
+                                    <h6 class="fw-bold mt-3 mb-0">Visited</h6>
                                 </div>
                                 
                             </div>
@@ -223,7 +222,7 @@
                             
                             
                             
-                            --}}
+                           
                     </div>
                 </div>
             </div>
