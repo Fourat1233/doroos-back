@@ -25,9 +25,11 @@ trait IssueTokenTrait{
         $params = [
             'grant_type' => $grantType,
             'client_id' => $this->client->id,
+            
             'client_secret' => $this->client->secret,
             'scope' => $scope
         ];
+        
 
         if(isset($credentials['refresh_token'])) {
             $params = array_merge($params, $credentials);

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
 use Illuminate\Database\Events\QueryExecuted;
@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+    { Schema::defaultStringLength(191);
         if($this->app->environment() === 'local'){
             DB::listen(function(QueryExecuted $query) {
                 file_put_contents('php://stdout', "\e[34m{$query->sql}\t\e[37m]" . json_encode($query->bindings) . "\t\e[32m{$query->time}ms\e[0m\n");
