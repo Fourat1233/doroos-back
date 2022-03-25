@@ -28,7 +28,7 @@ class SecurityController extends Controller
 
     public function __construct(TokenRepository $tokenRepository)
     {
-         $this->client = $tokenRepository->findClientById(10);
+         $this->client = $tokenRepository->findClientById(2);
        // return dump($this->client);
     }
 
@@ -106,7 +106,7 @@ class SecurityController extends Controller
     {
         return Validator::make($data, [
             $this->username() => ['required', 'string'],
-            $this->password() => ['required', 'string', 'min:6']
+            $this->password() => ['required', 'string']
         ]);
     }
 
