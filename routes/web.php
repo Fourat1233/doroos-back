@@ -56,14 +56,23 @@ Route::group(['prefix' => '{language}'], function() {
 
     Route::prefix('account')->group(function() {
         // Route::get('/create/step1', 'FrontOffice\secure\CreatProfileController@step1')->name('front.secure.profile.step1');
+        // Route::get('/create/step1', 'FrontOffice\Auth\LoginController@step1')->name('front.secure.profile.step1');
+        // Route::post('/create/step1', 'FrontOffice\secure\CreatProfileController@SaveStep1')->name('front.secure.profile.saveStep1');
+        // Route::get('/create/step2', 'FrontOffice\secure\CreatProfileController@step2')->name('front.secure.profile.step2');
+        // Route::post('/create/step2', 'FrontOffice\secure\CreatProfileController@SaveStep2')->name('front.secure.profile.saveStep2');
+        // Route::get('/create/step3', 'FrontOffice\secure\CreatProfileController@step3')->name('front.secure.profile.step3');
+        // Route::post('/create/step3', 'FrontOffice\secure\CreatProfileController@SaveStep3')->name('front.secure.profile.saveStep3');
+        // Route::get('/create/step4', 'FrontOffice\secure\CreatProfileController@step4')->name('front.secure.profile.step4');
+        // Route::post('/create/step4', 'FrontOffice\secure\CreatProfileController@SaveStep4')->name('front.secure.profile.saveStep4');
+
         Route::get('/create/step1', 'FrontOffice\Auth\LoginController@step1')->name('front.secure.profile.step1');
-        Route::post('/create/step1', 'FrontOffice\secure\CreatProfileController@SaveStep1')->name('front.secure.profile.saveStep1');
-        Route::get('/create/step2', 'FrontOffice\secure\CreatProfileController@step2')->name('front.secure.profile.step2');
-        Route::post('/create/step2', 'FrontOffice\secure\CreatProfileController@SaveStep2')->name('front.secure.profile.saveStep2');
-        Route::get('/create/step3', 'FrontOffice\secure\CreatProfileController@step3')->name('front.secure.profile.step3');
-        Route::post('/create/step3', 'FrontOffice\secure\CreatProfileController@SaveStep3')->name('front.secure.profile.saveStep3');
-        Route::get('/create/step4', 'FrontOffice\secure\CreatProfileController@step4')->name('front.secure.profile.step4');
-        Route::post('/create/step4', 'FrontOffice\secure\CreatProfileController@SaveStep4')->name('front.secure.profile.saveStep4');
+        Route::post('/create/step1', 'FrontOffice\Auth\LoginController@SaveStep1')->name('front.secure.profile.saveStep1');
+        Route::get('/create/step2', 'FrontOffice\Auth\LoginController@step2')->name('front.secure.profile.step2');
+        Route::post('/create/step2', 'FrontOffice\Auth\LoginController@SaveStep2')->name('front.secure.profile.saveStep2');
+        Route::get('/create/step3', 'FrontOffice\Auth\LoginController@step3')->name('front.secure.profile.step3');
+        Route::post('/create/step3', 'FrontOffice\Auth\LoginController@SaveStep3')->name('front.secure.profile.saveStep3');
+        Route::get('/create/step4', 'FrontOffice\Auth\LoginController@step4')->name('front.secure.profile.step4');
+        Route::post('/create/step4', 'FrontOffice\Auth\LoginController@SaveStep4')->name('front.secure.profile.saveStep4');
 
     });
 });
