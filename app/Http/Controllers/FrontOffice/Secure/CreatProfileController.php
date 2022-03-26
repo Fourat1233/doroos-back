@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class CreatProfileController extends Controller
 {
-    public function step1(Request $request) {
+/*     public function step1(Request $request) {
         $request->session()->remove('account');
         return view('front_office.secure.create_profile.step1');
-    }
+    } */
 
     public function SaveStep1(Request $request) {
         $validatedData = $request->validate([

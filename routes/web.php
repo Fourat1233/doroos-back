@@ -55,7 +55,8 @@ Route::group(['prefix' => '{language}'], function() {
     Route::post('/sign-out', 'FrontOffice\Auth\LoginController@logout')->name('front.signout');
 
     Route::prefix('account')->group(function() {
-        Route::get('/create/step1', 'FrontOffice\secure\CreatProfileController@step1')->name('front.secure.profile.step1');
+        // Route::get('/create/step1', 'FrontOffice\secure\CreatProfileController@step1')->name('front.secure.profile.step1');
+        Route::get('/create/step1', 'FrontOffice\Auth\LoginController@step1')->name('front.secure.profile.step1');
         Route::post('/create/step1', 'FrontOffice\secure\CreatProfileController@SaveStep1')->name('front.secure.profile.saveStep1');
         Route::get('/create/step2', 'FrontOffice\secure\CreatProfileController@step2')->name('front.secure.profile.step2');
         Route::post('/create/step2', 'FrontOffice\secure\CreatProfileController@SaveStep2')->name('front.secure.profile.saveStep2');

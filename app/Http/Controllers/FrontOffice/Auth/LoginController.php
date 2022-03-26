@@ -38,6 +38,12 @@ class LoginController extends Controller
         return view('front_office.guest.signin');
     }
 
+
+    public function step1(Request $request) {
+     //   $request->session()->remove('account');
+        return view('front_office.secure.create_profile.step1');
+    }
+
     public function showRegisterForm() {
         return view('front_office.guest.signup');
     }
