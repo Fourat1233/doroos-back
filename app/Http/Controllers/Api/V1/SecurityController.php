@@ -28,7 +28,7 @@ class SecurityController extends Controller
 
     public function __construct(TokenRepository $tokenRepository)
     {
-         $this->client = $tokenRepository->findClientById(2);
+         $this->client = $tokenRepository->findClientById(1);
        // return dump($this->client);
     }
 
