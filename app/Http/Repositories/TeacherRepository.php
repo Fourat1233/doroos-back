@@ -132,4 +132,6 @@ class TeacherRepository
             ->findOrFail($id)
             ->averageRating;
     }
+
+    
 }

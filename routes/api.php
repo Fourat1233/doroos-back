@@ -15,6 +15,8 @@ Route::prefix('v1')->group(function () {
         Route::get('/load_min_max', 'Api\V1\TeacherController@pricingMinMax');
         Route::get('/load_one/{id}', 'Api\V1\TeacherController@getOne');
         Route::get('/search', 'Api\V1\TeacherController@search');
+        Route::get('/nearby', 'Api\V1\TeacherController@nearby');
+
     });
 
     Route::get('load_popular', 'Api\V1\HomeController@loadPopular');

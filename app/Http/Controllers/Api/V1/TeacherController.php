@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\Api\LocationRepository;
 use App\Http\Repositories\Api\TeacherRepository;
 use App\Http\Repositories\SubjectRepository;
 use App\Instructor;
@@ -12,14 +13,23 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
+
+
+         /**
+     * @var LocationRepository
+     */
+    private $locationRepository;
+
+
     /**
      * @var TeacherRepository
      */
     private $teacherRepository;
 
-    public function __construct(TeacherRepository $teacherRepository)
+    public function __construct(TeacherRepository $teacherRepository,LocationRepository $locationRepository)
     {
         $this->teacherRepository = $teacherRepository;
+        $this->locationRepository = $locationRepository;
     }
 
     public function loadAll()
@@ -113,4 +123,29 @@ class TeacherController extends Controller
             ]
         ];
     }
+
+    public function nearby(Request $request)  //require long and lat as parameters
+    {
+        //getting the list of nearby cities
+            $radius = 10 ;
+        // return response()->json($locations);
+        if ( $request->filled('lng') and $request->filled('lat') ){
+            $teachers = $this->teacherRepository->teachersList();
+            $nearByTeachers = [];
+          //  return $teachers;
+            foreach ($teachers as $key => $value) {
+            
+                if (abs ($value->longitude - $request->lng)<$radius && abs($value->latitude - $request->lat)<$radius){
+                    array_push($nearByTeachers,$value);
+                }
+            }
+            return $nearByTeachers;
+            
+        }
+        else 
+        return response()->json("Please provide lng and lat params");
+    }
+
+
+
 }

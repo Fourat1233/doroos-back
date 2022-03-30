@@ -46,12 +46,20 @@ class TeacherRepository
     {
 
         $teachers = $this->teacher->newQuery()
-            ->trusted()
-            ->join('users', 'users.userable_id', '=', 'instructors.id')
-            ->join('instructor_subject', 'instructors.id', '=', 'instructor_subject.instructor_id')
-            ->with('subjects:name,ar_name')
-            ->select('profile_image', 'full_name', 'gender', 'users.id as user_id', 'instructors.id', 'phone_cell')
+             ->trusted()
+             ->join('users', 'users.userable_id', '=', 'instructors.id')
+             ->join('instructor_subject', 'instructors.id', '=', 'instructor_subject.instructor_id')
+             ->with('subjects:name,ar_name')
+            // ->select('profile_image', 'full_name', 'gender', 'users.id as user_id', 'instructors.id', 'phone_cell')
+            // ->distinct('instructor_subject.instructor_id')
+
+
+            
+  
+            ->select('instructors.*', 'full_name', 'gender', 'users.id as user_id')
             ->distinct('instructor_subject.instructor_id')
+            ->where('users.userable_type', '=', Instructor::class)
+
             ->where('users.userable_type', '=', Instructor::class);
 
         return $teachers->paginate(5);
