@@ -163,7 +163,7 @@
 		<footer class="footer">
 			<div class="container-fluid">
 				<div class="copyright ml-auto">
-					2020, made with <i class="fa fa-heart heart text-danger"></i> by <a href="http://www.menats.qa">Menats</a>
+					2021, made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://www.facebook.com/codexjuniorentreprise/">Codex Junior Entreprise</a>
 				</div>
 			</div>
 		</footer>

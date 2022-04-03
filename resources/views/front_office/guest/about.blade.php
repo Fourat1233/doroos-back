@@ -7,11 +7,14 @@
                     <img src="{{ asset('front-office/img/about.jpg')}}" class="img-fluid img-rounde" alt="about">
                 </div>
                 <div class="col-lg-6">
-                    <h2 class="h1">Welcome to Doroos</h2>
-                    <h2>Let’s do study with expert teachers</h2>
-                    <p class="text-muted">Aelltes port lacus quis enim var sed efficitur turpis gilla sed sit Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                    <p class="text-muted">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of lorem ipsum amet finibus eros. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-                    <p class="text-muted">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of lorem ipsum.</p>
+                    <h2 class="h1">{{__('Welcome to Doroos')}}</h2>
+                    <h2>{{__('Let’s do study with expert teachers')}}</h2>
+                    <p class="text-muted">{{__("lorem ipsum")}}</p>
+                    <p class="text-muted">{{__("lorem ipsum")}}</p>
+                    <p class="text-muted">{{__("lorem ipsum")}}</p>
+
+                    <!-- <p class="text-muted">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of lorem ipsum amet finibus eros. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p> -->
+                    <!-- <p class="text-muted">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of lorem ipsum.</p> -->
                 </div>
             </div>
         </div>

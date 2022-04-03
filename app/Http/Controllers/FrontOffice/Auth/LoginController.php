@@ -4,6 +4,8 @@ namespace App\Http\Controllers\FrontOffice\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Repositories\TeacherRepository;
+use App\Http\Controllers\Api\V1\LocationController;
+
 use App\Instructor;
 use App\Student;
 use App\User;
@@ -27,10 +29,11 @@ class LoginController extends Controller
      */
     private $teacherRepository;
 
-    public function __construct(AuthManager $authManager,  TeacherRepository $teacherRepository)
+    public function __construct(AuthManager $authManager,  TeacherRepository $teacherRepository, LocationController $LocationController)
     {
         $this->authManager = $authManager;
         $this->teacherRepository = $teacherRepository;
+        $this->LocationController = $LocationController;
 
         if (!Auth::check())
         {
@@ -123,7 +126,9 @@ class LoginController extends Controller
     
     public function step1(Request $request) {
         //   $request->session()->remove('account');
-           return view('front_office.secure.create_profile.step1');
+          //  dd($this->LocationController->loadall());
+        $locations = json_decode(json_encode( $this->LocationController->loadall()))->original->data;
+           return view('front_office.secure.create_profile.step1')->with('locations',$locations);
        }
    
        public function SaveStep1(Request $request) {

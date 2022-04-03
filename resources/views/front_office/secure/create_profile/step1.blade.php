@@ -149,32 +149,31 @@
                             @enderror
                         </div>
                         <div class="form-group">
+            
                             <label for="state">{{ __('State') }} </label>
                             <select name="state" class="form-control bigText" id="state">
                                 <option value="" selected>Choose State</option>
                                 <option value="Qatar"
                                     {{ session()->get('account.state') === 'Qatar' ? 'selected' : '' }}>Qatar</option>
+                               
                             </select>
                             @error('state')
                             <small id="emailHelp2" class="form-text text-danger text-muted">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group">
+                
+                                   
                         <label for="city">{{ __('City') }}</label>
                             <select name="city" class="form-control bigText" id="city">
                                 <option value="" selected>Choose City</option>
-                                <option value="Doha" {{ session()->get('account.city') === 'Doha' ? 'selected' : '' }}>
-                                    Doha</option>
-                                <option value="Doha" {{ session()->get('account.city') === 'Doha' ? 'selected' : '' }}>
-                                    Doha</option>
-                                <option value="Doha" {{ session()->get('account.city') === 'Doha' ? 'selected' : '' }}>
-                                    Doha</option>
-                                <option value="Doha" {{ session()->get('account.city') === 'Doha' ? 'selected' : '' }}>
-                                    Doha</option>
-                                <option value="Doha" {{ session()->get('account.city') === 'Doha' ? 'selected' : '' }}>
-                                    Doha</option>
-                                <option value="Doha" {{ session()->get('account.city') === 'Doha' ? 'selected' : '' }}>
-                                    Doha</option>
+                                
+                                    @foreach ($locations as $location)
+                                        
+                                        <option value="{{$location->address}}" {{ session()->get('account.city') === '$location->address' ? 'selected' : '' }}>
+                                        {{$location->address}}</option>
+                                    @endforeach 
+                 
                             </select>
                             @error('city')
                             <small id="emailHelp2" class="form-text text-danger text-muted">{{ $message }}</small>
